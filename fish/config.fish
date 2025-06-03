@@ -17,6 +17,10 @@ if test -f ~/.cache/ags/user/generated/terminal/sequences.txt
     cat ~/.cache/ags/user/generated/terminal/sequences.txt
 end
 
+# ---------------------- -----------------------------------------
+# 设置alias 
+# ---------------------- -----------------------------------------
+
 alias pamcan=pacman
 
 function shgo
@@ -51,3 +55,9 @@ end
 #   set_color cyan; echo (pwd)
 #   set_color green; echo '> '
 # end
+
+# ---------------------- -----------------------------------------
+# 设置 环境变量
+# ---------------------- -----------------------------------------
+set -x EDITOR vim
+set -x VISUAL vim
