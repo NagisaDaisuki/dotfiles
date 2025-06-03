@@ -11,18 +11,3 @@
 - `fish/` - Fish Shell 配置
 
 ---
-
-## 🛠 快速还原方法（软链接方式）
-
-将这些配置恢复到 `~/.config/`：
-
-```bash
-# 设置变量
-SRC=$(pwd)
-CONFIG_DIR="$HOME/.config"
-
-# 创建软链接
-ln -sfn "$SRC/nvim" "$CONFIG_DIR/nvim"
-ln -sfn "$SRC/kitty" "$CONFIG_DIR/kitty"
-ln -sfn "$SRC/fish" "$CONFIG_DIR/fish"
-
