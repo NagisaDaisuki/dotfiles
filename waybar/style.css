@@ -1,0 +1,134 @@
+/* ~/.config/waybar/style.css */
+/* import */
+@import "/home/Nagisa/.cache/wal/colors-waybar.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font, monospace, sans-serif";
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+window#waybar {
+    background-color: @background /*rgba(0,0,0,0.0)*/;
+    margin: 5px;
+    border-radius: 16px;
+    /*background: #0d1117;*/
+    color: @foreground /*#93B1A6*/;
+}
+
+/*
+tooltip label {
+    color: #93B1A6;
+}
+*/
+
+#workspaces {
+    border-radius: 16px 24px 24px 16px;
+    margin: 0;
+    background-color: @color0/*rgba(255, 255, 255, 0.08)*/;
+}
+
+#workspaces button {
+    color: @foreground;
+    background-color: transparent; /* 默认按钮透明背景，继承 waybar 整体背景 */
+    min-width: 28px;
+    border-radius: 20px;
+    margin: 8px 0;
+}
+
+#workspaces button:not(:last-child) {
+    margin-right: 4px;
+}
+
+#workspaces button:hover {
+    background-color: @color8 /*rgba(255, 255, 255, 0.08)*/;
+}
+
+#workspaces button.active,
+#workspaces button.active:hover {
+    background: @color4/*#5C8374*/;
+    color: @background /*#0d1117*/;
+}
+
+#clock {
+    background-color: @color0; /* 时钟模块使用 Pywal 的 @color2 */
+    color: @color2;
+    padding-right: 16px;
+    border-radius: 0 16px 16px 0;
+}
+
+#pulseaudio {
+    background-color: @color0; /* 音量模块使用 @color3 */
+    color: @color3;
+    padding: 0px 14px;
+}
+
+#pulseaudio.muted {
+    background-color: @color0; /* 静音时使用警告色 @color1 */
+    color: @foreground;
+}
+
+#network {
+    background-color: @color0; /* 网络模块使用 @color5 */
+    color: @color5;
+    padding: 0px 14px;
+    border-radius: 24px 0 0 24px;
+    padding-left: 24px;
+}
+
+#battery {
+    background-color: @color0; /* 电池模块使用 @color6 */
+    color: @color6;
+    padding: 0px 14px;
+}
+
+#battery.charging {
+    background-color: @color0; /* 充电时使用绿色调 */
+}
+
+#battery.warning:not(.charging) {
+    background-color: @color1; /* 低电量警告使用红色调 */
+    color: @foreground;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#custom-power {
+    background-color: @color0; /* 自定义电源按钮，使用亮色 */
+    color: @background;         /* 文本反色 */
+    padding: 0 10px;
+    border-radius: 8px;
+    margin-left: 5px; /* 放在最右边，与右侧模块稍微分开 */
+}
+
+/* Tooltip (Pop-up info) */
+tooltip {
+    background-color: @background;
+    color: @foreground;
+    padding: 10px;
+    border-radius: 14px;
+    border: 1px solid #21262d
+
+}
+
+#bluetooth,
+#temperature,
+#workspaces,
+#backlight {
+    color: @color7;
+    padding: 0px 14px;
+    background-color: @color0 /*rgba(255, 255, 255, 0.08))*/;
+}
+
+#tray {
+    padding: 0px 16px;
+}
+
+
+#temperature.critical {
+    color: red;
+}
+

@@ -1,0 +1,28 @@
+{
+    "checksum": "b94497327c12fd3f5c9bcb901cf8d110",
+    "wallpaper": "/home/Nagisa/Pictures/Backgrounds/GsPherabcAAr-WG.jpeg",
+    "alpha": "100",
+    "special": {
+        "background": "#16131c",
+        "foreground": "#c4c4c6",
+        "cursor": "#c4c4c6"
+    },
+    "colors": {
+        "color0": "#16131c",
+        "color1": "#706886",
+        "color2": "#865B85",
+        "color3": "#8E6584",
+        "color4": "#A97183",
+        "color5": "#DC5B92",
+        "color6": "#DC9E8D",
+        "color7": "#c4c4c6",
+        "color8": "#645d72",
+        "color9": "#706886",
+        "color10": "#865B85",
+        "color11": "#8E6584",
+        "color12": "#A97183",
+        "color13": "#DC5B92",
+        "color14": "#DC9E8D",
+        "color15": "#c4c4c6"
+    }
+}

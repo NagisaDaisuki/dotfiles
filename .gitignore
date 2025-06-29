@@ -1,0 +1,75 @@
+# 忽略所有文件
+*
+
+# 但不要忽略这些文件
+# 为什么要写中间目录（比如 .local/ 和 .local/share/）？
+# Git 的 .gitignore 是 逐级过滤的。如果父目录被忽略了，即使你白名单了子目录，也不会生效。
+# 错误写法，Git 会忽略整个 .local（默认被 * 匹配了）
+# *
+# !.local/share/nvim/
+
+!.gitignore
+!nvim/
+!nvim/**
+!kitty/
+!kitty/**
+!fish/
+!fish/**
+!gtk-4.0/
+!gtk-4.0/**
+!gtk-3.0/
+!gtk-3.0/**
+!wal/
+!wal/**
+!fastfetch/
+!fastfetch/**
+!hypr/
+!hypr/**
+!mpv/
+!mpv/**
+!rofi/
+!rofi/**
+!waybar/
+!waybar/**
+!.vim/
+!.vim/**
+!README.md 
+!.local/
+!.local/share/
+!.local/share/applications/
+!.local/share/applications/**
+!waybar.bak/
+!waybar.bak/**
+!clash/
+!clash/**
+!fastfetch1/
+!fastfetch1/**
+!fish.bak/
+!fish.bak/**
+!.cache/
+!.cache/wal/
+!.cache/wal/**
+
+# 子目錄中需要忽略的文件夾
+.local/share/nvim/
+.local/share/nvim/**
+!.local/share/fcitx5/
+!.local/share/fcitx5/**
+################## 註釋 ######################
+
+# 補充中間父目錄
+#*
+#!.gitignore
+#!.local/
+#!.local/share/
+#!.local/share/fcitx5/
+#!.local/share/fcitx5/**
+#!.local/share/nvim/
+#!.local/share/nvim/**
+#!.local/share/applications/
+#!.local/share/applications/**
+
+
+# 如果这些目录中还有子目录/文件需要排除，可以进一步指定
+# nvim/tmp
+# nvim/lua

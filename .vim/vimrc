@@ -1,0 +1,67 @@
+" 基础配置
+
+" 代码高亮
+syntax on
+
+" 显示行数字
+set number
+
+" 显示相对行数字
+set relativenumber
+
+" 在所在光标下显示一条线
+set cursorline 
+
+set wrap " 不让字符显示超出当前显示终端窗口
+set autoindent " 自动缩进
+set smartindent " 更智能的自动缩进
+set clipboard=unnamedplus " 使用系统剪贴板
+set showcmd " 
+set wildmenu " tab自动补全 
+set hlsearch " 高亮搜索
+exec "nohlsearch"
+set incsearch " 搜索时同步高亮
+set ignorecase " 忽略大小写
+set smartcase " 智能大小写
+"set mouse=a " 使用鼠标操作
+
+" 设置leader键为空格键
+let mapleader=" "
+
+" 键位映射
+noremap J 5j " Shift+j 向下移动5行
+noremap K 5k " Shift+k 向上移动5行
+noremap <LEADER><CR> :nohlsearch<CR> " 设置空格键加回车键取消搜索后的代码高亮
+
+
+" map s <nop>  
+map S :w<CR> " Shift+s操作表示保存文件
+map Q :q<CR> " Shift+q 退出文件
+map R :source $MYVIMRC<CR> " source配置文件
+
+" 设置透明背景
+" 关闭 Vim 自身背景色填充
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi LineNr ctermbg=none
+hi SignColumn ctermbg=none
+hi VertSplit ctermbg=none
+
+
+" vim-plug
+call plug#begin()
+" List your plugins here
+
+" airline主题
+Plug 'vim-airline/vim-airline'
+
+" vim-plug color主题
+Plug 'connorholyday/vim-snazzy'
+
+call plug#end()
+
+
+
+" 设置主题为snazzy
+color snazzy
+let g:SnazzyTransparent = 1

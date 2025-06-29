@@ -1,0 +1,28 @@
+{
+    "checksum": "2b25b936b9012724f976d79cc6ed1779",
+    "wallpaper": "/home/Nagisa/Pictures/Backgrounds/kayoko.png",
+    "alpha": "100",
+    "special": {
+        "background": "#130e21",
+        "foreground": "#c4c2c7",
+        "cursor": "#c4c2c7"
+    },
+    "colors": {
+        "color0": "#130e21",
+        "color1": "#8A2E5E",
+        "color2": "#ED089B",
+        "color3": "#FD0399",
+        "color4": "#945295",
+        "color5": "#C3A1BF",
+        "color6": "#E2CBD9",
+        "color7": "#c4c2c7",
+        "color8": "#625d72",
+        "color9": "#8A2E5E",
+        "color10": "#ED089B",
+        "color11": "#FD0399",
+        "color12": "#945295",
+        "color13": "#C3A1BF",
+        "color14": "#E2CBD9",
+        "color15": "#c4c2c7"
+    }
+}
