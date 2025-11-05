@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/usr/lib/waydroid'
+let g:netrw_dirhist_4='/var/lib/waydroid/host-permissions'
+let g:netrw_dirhist_3='/var/lib/waydroid'
+let g:netrw_dirhist_2='/var/lib/waydroid/overlay_rw'
+let g:netrw_dirhist_1='/var/lib/waydroid'
+let g:netrw_dirhist_0='/var/lib/waydroid/overlay_rw'
+let g:netrw_dirhist_9='/var/lib/waydroid/overlay_rw/vendor'
+let g:netrw_dirhist_8='/var/lib/waydroid/overlay_rw'
+let g:netrw_dirhist_7='/var/lib/waydroid/overlay_rw/system'
+let g:netrw_dirhist_6='/var/lib/waydroid/overlay_rw'

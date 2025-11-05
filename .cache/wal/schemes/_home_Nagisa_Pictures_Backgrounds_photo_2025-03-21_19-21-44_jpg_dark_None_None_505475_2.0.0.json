@@ -1,0 +1,28 @@
+{
+    "checksum": "16fca08366c126c8fa362f09ff2eff75",
+    "wallpaper": "/home/Nagisa/Pictures/Backgrounds/photo_2025-03-21_19-21-44.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#151312",
+        "foreground": "#c4c4c3",
+        "cursor": "#c4c4c3"
+    },
+    "colors": {
+        "color0": "#151312",
+        "color1": "#416CA8",
+        "color2": "#1D75CD",
+        "color3": "#2373C9",
+        "color4": "#798181",
+        "color5": "#649BB1",
+        "color6": "#2685D9",
+        "color7": "#c4c4c3",
+        "color8": "#6f645a",
+        "color9": "#416CA8",
+        "color10": "#1D75CD",
+        "color11": "#2373C9",
+        "color12": "#798181",
+        "color13": "#649BB1",
+        "color14": "#2685D9",
+        "color15": "#c4c4c3"
+    }
+}

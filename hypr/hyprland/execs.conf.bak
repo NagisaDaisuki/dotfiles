@@ -1,0 +1,35 @@
+#################
+### AUTOSTART ###
+#################
+
+
+# Input method
+exec-once = fcitx5
+
+# Cursor
+exec-once = hyprctl setcursor 'Hatsune-Miku' 32
+
+exec-once = swaync # Notifications
+exec-once = udiskie # Manage removable media like flash drives
+# exec-once = nm-applet # Wifi
+
+# 配置文件 -c   样式文件 -s
+exec-once=waybar -c ~/.config/waybar/configs/mpris_middle -s ~/.config/waybar/style/bintang_default.css >/dev/null
+exec-once=swww init
+exec-once=swww-daemon --format xrgb  # swww 
+exec-once = /usr/lib/geoclue-2.0/demos/agent & gammastep
+
+# Core components (authentication, lock screen, notification daemon)
+# exec-once = dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || /usr/libexec/polkit-gnome-authentication-agent-1
+exec-once = /usr/lib/polkit-lxsession/polkit-lxsession-agent-1 # polkit认证代理
+exec-once = hypridle # Idle
+exec-once = dbus-update-activation-environment --all
+exec-once = sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Some fix idk
+exec-once = hyprpm reload
+
+# Clipboard: history
+# exec-once = wl-paste --watch cliphist store &
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+

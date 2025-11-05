@@ -1,0 +1,28 @@
+{
+    "checksum": "4c0cbbf073fa6ee08093755caf929434",
+    "wallpaper": "/home/Nagisa/Pictures/Backgrounds/hina.png",
+    "alpha": "100",
+    "special": {
+        "background": "#342739",
+        "foreground": "#ccc9cd",
+        "cursor": "#ccc9cd"
+    },
+    "colors": {
+        "color0": "#342739",
+        "color1": "#E6C7BC",
+        "color2": "#A69BC4",
+        "color3": "#B7ABCD",
+        "color4": "#CDB7CB",
+        "color5": "#CFA4E3",
+        "color6": "#E0D0DF",
+        "color7": "#ccc9cd",
+        "color8": "#7e6b84",
+        "color9": "#E6C7BC",
+        "color10": "#A69BC4",
+        "color11": "#B7ABCD",
+        "color12": "#CDB7CB",
+        "color13": "#CFA4E3",
+        "color14": "#E0D0DF",
+        "color15": "#ccc9cd"
+    }
+}

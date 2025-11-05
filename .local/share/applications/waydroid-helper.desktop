@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=waydroid-helper
+Exec=/opt/waydroid-helper/waydroid-helper %U
+Terminal=false
+Type=Application
+Icon=~/.local/share/icons/hicolor/16x16/apps/D23E_msiexec.0.png
+StartupWMClass=waydroid-helper
+Categories=Network;
+Comment=waydroid-helper

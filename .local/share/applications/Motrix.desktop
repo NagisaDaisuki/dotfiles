@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Motrix
+Exec=/opt/Motrix/Motrix-1.8.19.AppImage  %U --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
+Terminal=false
+Type=Application
+Icon=Motrix
+StartupWMClass=Motrix
+Categories=Network;Downloader;
+Comment[zh_CN]=Aria多线程下载器
+MimeType=x-scheme-handler/magnet;x-scheme-handler/motrix;x-scheme-handler/mo;

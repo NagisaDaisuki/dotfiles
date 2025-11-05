@@ -1,0 +1,4 @@
+[templates.web]
+input_path = '~/.config/matugen/templates/web-colors.css'
+output_path = '/path/to/startpage/directory'
+

@@ -1,0 +1,28 @@
+{
+    "checksum": "51593ddc874d0d6d0b1f985c3a77e797",
+    "wallpaper": "/home/Nagisa/Pictures/Backgrounds/Natsu.jpeg",
+    "alpha": "100",
+    "special": {
+        "background": "#101a27",
+        "foreground": "#c3c5c9",
+        "cursor": "#c3c5c9"
+    },
+    "colors": {
+        "color0": "#101a27",
+        "color1": "#60C8D8",
+        "color2": "#E4B19C",
+        "color3": "#D7C398",
+        "color4": "#A3DBDC",
+        "color5": "#B5E4DD",
+        "color6": "#B9E6E2",
+        "color7": "#c3c5c9",
+        "color8": "#5f6975",
+        "color9": "#60C8D8",
+        "color10": "#E4B19C",
+        "color11": "#D7C398",
+        "color12": "#A3DBDC",
+        "color13": "#B5E4DD",
+        "color14": "#B9E6E2",
+        "color15": "#c3c5c9"
+    }
+}

@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/Nagisa/Pictures/Backgrounds/photo_2024-11-14_00-37-48.jpg"
+let background = "#291b11"
+let foreground = "#c9c6c3"
+let cursor     = "#c9c6c3"
+
+" Colors
+let color0  = "#291b11"
+let color1  = "#CE3B21"
+let color2  = "#8D5F30"
+let color3  = "#8B6F4C"
+let color4  = "#768F33"
+let color5  = "#B3A657"
+let color6  = "#EAD59E"
+let color7  = "#c9c6c3"
+let color8  = "#766960"
+let color9  = "#CE3B21"
+let color10 = "#8D5F30"
+let color11 = "#8B6F4C"
+let color12 = "#768F33"
+let color13 = "#B3A657"
+let color14 = "#EAD59E"
+let color15 = "#c9c6c3"
