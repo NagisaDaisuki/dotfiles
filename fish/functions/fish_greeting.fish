@@ -43,19 +43,19 @@ function fish_greeting
         # 宽终端： 输出最大的图形
         string join \n $greeting_large | while read -l line
             # 输出当前行到 lolcat
-            echo $line | lolcat -F 0.2 -S 5
+            echo $line | lolcat -F 0.2 -S 3
             # 延迟 0.05 秒 
             sleep 0.05s
         end
     else if test $term_width -ge 80
         # 中等终端：输出中等图形
         string join \n $greeting_mid | while read -l line
-            echo $line | lolcat -F 0.2 -S 5
+            echo $line | lolcat -F 0.2 -S 3
             sleep 0.05s
         end
     else
         # 窄终端：只输出文字
-        echo $greeting_small | lolcat -F 0.2 -S 5
+        echo $greeting_small | lolcat -F 0.2 -S 3
     end
 
     set_color normal

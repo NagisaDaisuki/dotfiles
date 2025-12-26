@@ -14,7 +14,7 @@
   "notification-2fa-action": true,
   "notification-inline-replies": false,
   "notification-window-width": 380,
-  "notification-icon-size": 48,
+  "notification-icon-size": 64,
   "notification-body-image-height": 240,
   "notification-body-image-width": 240,
   "timeout": 8,
@@ -30,14 +30,14 @@
   "scripts": {
 		"message-sound": {
 			"exec": "/home/Nagisa/.config/swaync/sound/sound-message.sh",
-			"app-name":"qq|chrome"
+			"app-name":"firefox"
 		},
 		"complete-sound": {
 			"exec": "/home/Nagisa/.config/swaync/sound/sound-complete.sh",
-			"app-name":"alixby3|com.xunlei.download|baidunetdisk|"
+			"app-name":"QQ|telegram|baidunetdisk|wechat|Motrix|"
 		},
 		"Low-sound": {
-			"exec": "/home/Nagisa/.config/swaync/sound/sound-normal.sh",
+			"exec": "/home/Nagisa/.config/swaync/sound/sound-volume.sh",
 			"urgency": "Low"
 		  },
 		"Normal-sound": {
@@ -93,22 +93,7 @@
           "command": "swaync-client -d",
           "type": "toggle",
           "tooltip": "DND"
-        },
-        {
-          "label": "󰍜",
-          "command": "gnome-network-displays",
-          "tooltip": "Screens"
-        },
-        {
-          "label": "󰈙",
-          "command": "kitty bash -i -c 'Docs'",
-          "tooltip": "Files"
-        },
-        {
-          "label": "",
-          "command": "kitty bash -i -c 'Settings'",
-          "tooltip": "Settings"
-        },
+        }, 
         {
           "label": "",
           "command": "hyprlock",

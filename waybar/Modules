@@ -236,13 +236,13 @@
 },
 
 "mpris": {
-	"interval": 1,
+	// "interval": 1,
 	"format": "{player_icon} <i>{dynamic}</i>",
 	"format-paused": "{status_icon} <i>{artist} {title}</i>",
 	"on-click-middle": "playerctl play-pause",
 	"on-click": "playerctl previous",
 	"on-click-right": "playerctl next",
-	"scroll-step": 5.0,
+	// "scroll-step": 5.0,
 	"on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh --inc",
 	"on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh --dec",
 	"smooth-scrolling-threshold": 1,
@@ -253,18 +253,20 @@
 		"default": "",
 		"firefox": "",
 		"mopidy": "",
+		"yesplaymusic": "",
+		"vutronmusic": "",
 		"mpv": "󰐹",
 		"spotify": "",
-		"vlc": "󰕼",
+		"vlc": "󰕼"
 	},
 	"status-icons": {
 		"paused": "󰐎",
 		"playing": "",
-		"stopped": "",
+		"stopped": ""
 	},
 	"dynamic-order": ["artist", "title"],
-	"ignored-players": ["firefox", "zen"],
-	"max-length": 50,
+	//"ignored-players": [],
+	"max-length": 50
 },
 
 "network": {
@@ -287,8 +289,8 @@
 "network#speed": {
 	"interval": 1,
 	"format": "{ifname}",
-	"format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
-	"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
+	"format-wifi": "{icon}   {bandwidthUpBytes}  {bandwidthDownBytes}",
+	"format-ethernet": "󰌘    {bandwidthUpBytes}  {bandwidthDownBytes}",
 	"format-disconnected": "󰌙",
 	"tooltip-format": "{ipaddr}",
 	"format-linked": "󰈁 {ifname} (No IP)",

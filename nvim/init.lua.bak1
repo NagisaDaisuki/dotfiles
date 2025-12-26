@@ -1,0 +1,155 @@
+-- init.lua (合并 Matugen loader)
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
+
+-- 设置<leader>为空格
+vim.g.mapleader = " "
+
+-- 设置默认启动主题（fallback）
+vim.cmd.colorscheme("gruvbox")
+
+-- 设置背景透明
+vim.cmd([[highlight Normal guibg=NONE ctermbg=NONE]])
+vim.cmd([[highlight NormalNC guibg=NONE ctermbg=NONE]])
+vim.cmd([[highlight NormalFloat guibg=NONE ctermbg=NONE]])
+vim.cmd([[highlight Pmenu guibg=NONE ctermbg=NONE]])
+vim.cmd([[highlight FloatBorder guibg=NONE ctermbg=NONE]])
+
+-- ===========================
+-- Matugen loader (inline)
+-- ===========================
+local matugen = {}
+local uv = vim.loop
+
+-- 默认配置（output_path 改为不会被 lazy 扫描的位置）
+local defaults = {
+  -- 将生成文件放在 ~/.config/nvim/matugen-colors.lua，避免被 lazy.nvim 当作插件 spec 提前加载
+  generated_path = vim.fn.stdpath("config") .. "/matugen-colors.lua",
+  fallback = "gruvbox",
+  -- 若你有 lualine 的单独配置文件，填入其路径；也可以设置为一个 function 来重置 lualine
+  lualine = vim.fn.stdpath("config") .. "/lua/config/plugins/lualine-nvim.lua",
+  italic_comment = true,
+  on_reload = {}, -- 可以在这里放额外的回调函数列表
+}
+
+local function file_exists(path)
+  if not path or path == "" then
+    return false
+  end
+  return uv.fs_stat(path) ~= nil
+end
+
+local function safe_dofile(path)
+  if not file_exists(path) then
+    return false, "not found"
+  end
+  local ok, err = pcall(dofile, path)
+  return ok, err
+end
+
+local function run_hooks(opts)
+  -- 重新加载 lualine（如果配置为了 path 或 function）
+  if opts.lualine then
+    if type(opts.lualine) == "string" then
+      pcall(dofile, opts.lualine)
+    elseif type(opts.lualine) == "function" then
+      pcall(opts.lualine)
+    end
+  end
+
+  -- 其它自定义回调
+  if opts.on_reload and type(opts.on_reload) == "table" then
+    for _, fn in ipairs(opts.on_reload) do
+      if type(fn) == "function" then
+        pcall(fn)
+      end
+    end
+  end
+
+  -- 小调整：注释斜体（可选）
+  if opts.italic_comment then
+    pcall(vim.api.nvim_set_hl, 0, "Comment", { italic = true })
+  end
+end
+
+-- 执行生成文件或回退到 fallback
+function matugen.reload()
+  local opts = matugen._opts or defaults
+  if file_exists(opts.generated_path) then
+    local ok, err = safe_dofile(opts.generated_path)
+    if not ok then
+      vim.notify("matugen: error loading generated file: " .. tostring(err), vim.log.levels.ERROR)
+    end
+  else
+    pcall(vim.cmd, "colorscheme " .. opts.fallback)
+    vim.notify("matugen: generated theme not found; using fallback: " .. opts.fallback, vim.log.levels.INFO)
+  end
+
+  run_hooks(opts)
+end
+
+-- 初始化（设置 autocmd 监听 SIGUSR1）
+function matugen.setup(opts)
+  if matugen._initialized then
+    return
+  end
+  opts = vim.tbl_deep_extend("force", defaults, opts or {})
+  matugen._opts = opts
+
+  -- 监听 matugen 的 post_hook（例：pkill -SIGUSR1 nvim）
+  vim.api.nvim_create_autocmd("Signal", {
+    pattern = "SIGUSR1",
+    callback = function()
+      matugen.reload()
+    end,
+  })
+
+  matugen._initialized = true
+end
+
+-- ===========================
+-- 在合适时机启动 matugen loader
+-- ===========================
+-- 我们优先在 Lazy 的插件加载完成事件 "VeryLazy" 后初始化（一般 LazyVim 会触发）
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    -- 确保只初始化一次
+    if not matugen._initialized then
+      matugen.setup({
+        generated_path = vim.fn.stdpath("config") .. "/matugen-colors.lua",
+        fallback = "gruvbox",
+        lualine = vim.fn.stdpath("config") .. "/lua/config/plugins/lualine-nvim.lua",
+        italic_comment = true,
+        on_reload = {
+          -- 这是可选的额外回调
+          function()
+            pcall(vim.api.nvim_set_hl, 0, "CursorLine", { bg = nil })
+          end,
+        },
+      })
+      -- 初始加载（插件已就绪）
+      matugen.reload()
+    end
+  end,
+})
+
+-- 作为保险：如果没有 VeryLazy（或没有及时触发），在 VimEnter 时降级执行一次（延时避免冲突）
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.defer_fn(function()
+      if not matugen._initialized then
+        matugen.setup({
+          generated_path = vim.fn.stdpath("config") .. "/matugen-colors.lua",
+          fallback = "gruvbox",
+          lualine = vim.fn.stdpath("config") .. "/lua/config/plugins/lualine-nvim.lua",
+          italic_comment = true,
+        })
+        matugen.reload()
+      end
+    end, 100)
+  end,
+})
+
+-- End of matugen loader
+-- ===========================

@@ -1,65 +1,109 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": null,
+     "logo": {
+         "type": "file",
+         "source": "~/.config/fastfetch/logo.txt",
+         "color": {   // you can customize color here
+             "1": "white",
+             "2": "red",
+             "3": "38;2;23;147;209"
+         }
+     },
     "display": {
-        "separator": "  ",
-        "color": "white",
-        "constants": ["\u001b[37m", "\u001b[38;5;16m", "\u001b[38;5;17m", "\u001b[38;5;18m"]
+        "separator": " ",
+        "color": "cyan"
     },
     "modules": [
-        "break",
         {
-            "type": "custom",
-            "key": "╭───────────────────────────────────╮"
+            "type": "custom", // HardwareStart
+            "format": "┌────────────── \u001b[1mHardware Information\u001b[0m ──────────────┐" // `\u001b` is `\033`, or `\e`
         },
         {
-            "type": "kernel",
-            "key": "│ {$2}{$1}  kernel",
-            "format": "{$2}{release>22}{$1} │"
+            "type": "host",
+            "key": "  󰌢 "
         },
         {
-            "type": "command",
-            "key": "│   uptime",
-            "text": "uptime -p | cut -d ' ' -f 2-",
-            "format": "{>22} │"
+            "type": "cpu",
+            "key": "   "
         },
         {
-            "type": "shell",
-            "key": "│ {$2}{$1}  shell ",
-            "format": "{$2}{pretty-name>22}{$1} │"
+            "type": "gpu",
+            "detectionMethod": "pci",
+            "key": "   "
         },
         {
-            "type": "command",
-            "key": "│ {$3}{$1}  mem   ",
-            "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
-            "format": "{$3}{>22}{$1} │"
+            "type": "board",
+            "key": "  󰚗 "
         },
         {
-            "type": "packages",
-            "key": "│   pkgs  ",
-            "format": "{all>22} │"
+            "type": "display",
+            "key": "  󱄄 "
         },
         {
-            "type": "command",
-            "key": "│ {$2}{$1}  user  ",
-            "text": "echo $USER",
-            "format": "{$2}{>22}{$1} │"
+            "type": "memory",
+            "key": "   "
         },
         {
-            "type": "command",
-            "key": "│   hname ",
-            "text": "hostnamectl hostname",
-            "format": "{>22} │"
+            "type": "disk",
+            "key": "   "
+        },
+        {
+            "type": "custom", // SoftwareStart
+            "format": "├────────────── \u001b[1mSoftware Information\u001b[0m ──────────────┤"
         },
         {
             "type": "os",
-            "key": "│ {$4}󰻀{$1}  distro",
-            "format": "{$4}{pretty-name>22}{$1} │"
+            "key": "   " // Just get your distro's logo off nerdfonts.com,
         },
         {
-            "type": "custom",
-            "key": "╰───────────────────────────────────╯"
+            "type": "kernel",
+            "key": "   ",
+            "format": "{1} {2}"
         },
-        "break"
+        {
+            "type": "wm",
+            "key": "   "
+        },
+        {
+            "type": "shell",
+            "key": "   "
+        },
+        {
+            "type": "packages",
+            "key": "  󰏖 "
+        },
+        {
+            "type": "terminalfont",
+            "key": "   "
+        },
+        // {
+        //     "type": "processes",
+        //     "key": "   "
+        // },
+        {
+            "type": "custom",
+            "format": "|──────────────── \u001b[1mUptime / Age\u001b[0m ────────────────────|"
+        },
+        {
+            "type": "command",
+            "key": "  OS Age ",
+            "keyColor": "magenta",
+            "text": "powershell -Command \"(Get-Date) - (gcim Win32_OperatingSystem).InstallDate | ForEach-Object { \\\"$($_.Days) days\\\" }\""  // pwsh
+            // "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days" // bash
+        },
+        {
+            "type": "uptime",
+            "key": "  Uptime ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "custom", // InformationEnd
+            "format": "└──────────────────────────────────────────────────┘"
+        },
+        {
+            "type": "colors",
+            "paddingLeft": 2,
+            "symbol": "circle"
+        }
     ]
 }

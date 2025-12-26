@@ -1,46 +1,107 @@
-[config.wallpaper]
-command = "swww"
-arguments = ["img", "--transition-type", "any", "--transition-fps", "60"]
-set = false
+#  ┳┳┓┏┓┏┳┓┳┳┏┓┏┓┳┓
+#  ┃┃┃┣┫ ┃ ┃┃┃┓┣ ┃┃
+#  ┛ ┗┛┗ ┻ ┗┛┗┛┗┛┛┗
+#                  
 
-[templates.waybar]
-enable = true
-input_path = '~/Public/dotfiles/matugen/templates/colors.css'
-output_path = '~/Public/dotfiles/waybar/style/colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
+# Global Configs
+[config]
+version_check = false
 
+# Templates
+
+# Kitty
 [templates.kitty]
-input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/colors.conf'
-post_hook = "kill -SIGUSR1 $(pidof kitty)"
+input_path = '~/.config/matugen/templates/matugen-kitty.conf'
+output_path = '~/.config/kitty/matugen/colors-matugen.conf'
 
-[templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+# Zen
+#[templates.zen]
+#input_path = '~/.config/matugen/templates/zen-colors.css'
+#output_path = '~/.config/zen-browser/matugen.css'
+# 注意：你需要先手动创建 mkdir -p ~/.config/zen-browser/ 这个目录
 
-[templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/colors.css'
-
-[templates.gtk4]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-4.0/colors.css'
-
+# Rofi
 [templates.rofi]
-input_path = '~/.config/matugen/templates/rofi-colors.rasi'
-output_path = '~/.config/rofi/colors.rasi'
+input_path = '~/.config/matugen/templates/matugen-rofi.rasi'
+output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'
 
+# Hyprland
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/matugen-hyprland.conf'
+output_path = '~/.config/hypr/matugen/matugen-hyprland.conf'
+
+# Hyprlock
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/matugen-hyprlock.conf'
+output_path = '~/.config/hypr/matugen/matugen-hyprlock.conf'
+
+# Waybar
+[templates.waybar]
+input_path = '~/.config/matugen/templates/matugen-waybar.css'
+output_path = '~/.config/waybar/matugen/matugen-waybar.css'
+post_hook = 'pkill waybar && waybar -c ~/.config/waybar/configs/mpris_middle -s ~/.config/waybar/style/islands.css'
+
+# Swaync
+[templates.swaync]
+input_path = '~/.config/matugen/templates/matugen-swaync.css'
+output_path = '~/.config/swaync/matugen/matugen-swaync.css'
+post_hook = 'swaync-client -rs'
+
+# Gtk3
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+# Gtk4
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+# Qt5
+[templates.qt5]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen-qt5ct.conf'
+
+# Qt6
+[templates.qt6]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen-qt6ct.conf'
+
+# Cava
 [templates.cava]
 input_path = '~/.config/matugen/templates/matugen-cava'
 output_path = '~/.config/cava/config'
-post_hook = "pkill -USR1 cava"
 
-[templates.spicetify]
-input_path = '~/.config/matugen/templates/spotify-colors.ini'
-output_path = '~/.config/spicetify/Themes/text/color.ini'
+## Kvantum
+#[templates.kvantum]
+#input_path = '~/.config/matugen/templates/matugen.kvconfig'
+#output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 
-[templates.vesktop]
-input_path = '~/.config/matugen/templates/midnight-discord.css'
-output_path = '~/.config/vesktop/themes/matugen.css'
+# Pywalfox
+#[templates.pywalfox]
+#input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+#output_path = '~/.cache/wal/colors.json'
+#post_hook = 'pywalfox update'
 
+## Zathura
+#[templates.zathura]
+#input_path = '~/.config/matugen/templates/matugen-zathurarc'
+#output_path = '~/.config/zathura/matugen-zathurarc'
+
+
+# Nvim
+#[templates.nvim]
+#input_path = '~/.config/matugen/templates/matugen-nvim.lua'
+#output_path = '~/.config/nvim/matugen-colors.lua'
+#post_hook = 'pkill -SIGUSR1 nvim'
+
+# Bat
+#[templates.bat]
+#input_path = '~/.config/matugen/templates/matugen-bat-colors.tmTheme'
+#output_path = '~/.config/bat/themes/matugen-bat-colors.tmTheme'
+#post_hook = 'bat cache --build' 
+#
+## Spicetify
+#[templates.spicetify]
+#input_path = '~/.config/matugen/templates/spotify-colors.ini'
+#output_path = '~/.config/spicetify/Themes/Comfy/color.ini'

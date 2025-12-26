@@ -1,5 +1,5 @@
-@import "colors.css";
-
+/*------------Importing Matugen Colors---------------*/
+@import "../matugen/matugen-waybar.css";
 
 * {
 	font-family: "JetBrainsMono Nerd Font Propo";
@@ -141,6 +141,7 @@ tooltip label{
 #window,
 #wireplumber,
 #workspaces,
+#custom-yesplay,
 #custom-backlight,
 #custom-browser,
 #custom-cava_mviz,

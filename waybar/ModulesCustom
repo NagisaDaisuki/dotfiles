@@ -9,37 +9,40 @@
 {    
   "custom/waylrc": {
         "exec": "~/.local/bin/waylrc",
+        /*waylrc 会像 tail -f 一样持续输出，所以不需要 interval*/         
         "return-type": "json",
+        "format": "{}",
+        /* 确保 waybar 能正确处理滚动输出 */
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on_scroll-down": "playerctl previous",
+        "escape": true 
+  },
+
+  "custom/yesplaymusic-lyrics":{
+        "exec": "/home/Nagisa/.venv-waybar/bin/python /home/Nagisa/Public/scripts/lyrics/yesplaymusic_lyrics.py",   
+        /*waylrc 会像 tail -f 一样持续输出，所以不需要 interval*/   
+        "return-type": "json",                                      
+        /*"format": "{}",                                             
+        /* 确保 waybar 能正确处理滚动输出 */                        
+        "max-length": "60", 
+        "on-click": "playerctl play-pause",                         
+        "on-scroll-up": "playerctl next",                           
+        "on_scroll-down": "playerctl previous",                     
         "escape": true
   },
 
-  "custom/lyrics": {
-    "return-type": "json",
-    "format": "{icon} {0}",
-    "hide-empty-text": true,
-    "format-icons": {
-      "playing": "",
-      "paused": "",
-      "lyric": "",
-      "music": "󰝚",
-      "no_lyric": "",
-      "getting": "",
+  "custom/yesplay": {
+      "exec": "~/Public/scripts/lyrics/get_yesplaymusic_title.sh",
+      "interval": 1, // 每秒刷新一次
+      "format": "{}",
+      //"on-click": "playerctl play-pause",
+      "on-click-middle": "~/Public/scripts/lyrics/control_yes.sh play-pause",
+      "on-click-right": "~/Public/scripts/lyrics/control_yes.sh next",                           
+      "on-click": "~/Public/scripts/lyrics/control_yes.sh prev",                     
+      "max-length": 50
     },
-    "exec-if": "which waybar-lyric",
-    "exec": "waybar-lyric --quiet",
-    "on-click": "waybar-lyric play-pause",
-  },
-
-"custom/mpris": {
-    // 使用 playerctl 提取信息，每隔 1 秒更新
-    "exec": "playerctl metadata --format '{{ artist }} - {{ title }}' 2> /dev/null", 
-    "return-type": "json",
-    "format": "🎶 {}",
-    "on-click": "playerctl play-pause",
-    
-    "interval": 1
-},
-
+  
 "custom/weather": {
 	"format": "{}",
 	"format-alt": "{alt}: {}",

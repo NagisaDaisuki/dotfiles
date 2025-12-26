@@ -25,16 +25,16 @@
 	//"idle_inhibitor",
 	//"custom/separator#blank",
 	"clock",
-        "custom/separator#blank",	
+  "custom/separator#blank",	
 	"tray",
-        "custom/separator#blank",	
-        "hyprland/workspaces#kanji",
+  "custom/separator#blank",	
+  "hyprland/workspaces#kanji",
+  "custom/separator#blank",	
+  "custom/yesplay",
 	],
 
 "modules-center": [
 	      //"group/app_drawer",
-
-        "custom/waylrc",
         "custom/separator#blank",
         "mpris",
         "custom/separator#blank",
@@ -45,16 +45,19 @@
         //"mpris",
         //"custom/separator#dot-line",
         
-	"custom/separator#blank",  
+  "custom/waylrc",
+	//"custom/yesplaymusic-lyrics",
+  "custom/separator#blank",  
   //"backlight",
 	//"custom/separator#blank",  
+  "network#speed",
 	"battery",
 	"custom/separator#blank",  
 	"group/audio",
 	"custom/separator#blank",
 	"group/mobo_drawer",
 	"group/connections",
-  "group/status",
+
 	],
 }
 

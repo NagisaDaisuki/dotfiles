@@ -1,0 +1,49 @@
+/***
+ *    ┳┳┓┏┓┏┳┓┳┳┏┓┏┓┳┓  ┳┓┏┓┏┓┳
+ *    ┃┃┃┣┫ ┃ ┃┃┃┓┣ ┃┃━━┣┫┃┃┣ ┃
+ *    ┛ ┗┛┗ ┻ ┗┛┗┛┗┛┛┗  ┛┗┗┛┻ ┻
+ *                             
+ */
+
+/**
+ * Matugen Rofi Colors
+ * Generated dynamically from wallpaper
+ **/
+
+//* {
+//    /* 背景色：使用最深的背景 */
+//    background:     {{colors.background.default.hex}}FF;
+//
+//    /* 备用背景 (background-alt)：使用稍微亮一点的容器色，用于区分列表项 */
+//    background-alt: {{colors.surface_container.default.hex}}FF;
+//
+//    /* 前景色 (foreground)：标准的字体颜色 */
+//    foreground:     {{colors.on_surface.default.hex}}FF;
+//
+//    /* 选中状态 (selected)：使用主色调 (Primary) */
+//    selected:       {{colors.primary.default.hex}}FF;
+//
+//    /* 激活状态 (active)：使用次要色 (Secondary)，通常用于窗口切换模式 */
+//    active:         {{colors.secondary.default.hex}}FF;
+//
+//    /* 紧急状态 (urgent)：使用错误色 (Error) */
+//    urgent:         {{colors.error.default.hex}}FF;
+//}
+/**
+ * Matugen Rofi Colors (Transparent Version)
+ **/
+
+* {
+    /* --- 关键修改 --- */
+    /* 在颜色后面加上 CC 表示 80% 不透明度 (你可以改成 AA 或 99 让它更透) */
+    background:     {{colors.background.default.hex}}CC;
+
+    /* 列表项背景也稍微透一点，或者保持 FF (如果你希望交替行不透明) */
+    background-alt: {{colors.surface_container.default.hex}}CC;
+
+    /* --- 以下保持 FF (不透明) 以确保文字清晰 --- */
+    foreground:     {{colors.on_surface.default.hex}}FF;
+    selected:       {{colors.primary.default.hex}}FF;
+    active:         {{colors.secondary.default.hex}}FF;
+    urgent:         {{colors.error.default.hex}}FF;
+}

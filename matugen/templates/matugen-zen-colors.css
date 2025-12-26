@@ -1,0 +1,48 @@
+/* Matugen Generated Colors for Zen Browser */
+
+:root {
+    /* 1. 定义 Matugen 原始颜色 */
+    --m-bg: {{colors.background.default.hex}};
+    --m-fg: {{colors.on_surface.default.hex}};
+    --m-surface: {{colors.surface.default.hex}};
+    --m-surface-dim: {{colors.surface_container_low.default.hex}};
+    --m-surface-bright: {{colors.surface_container_high.default.hex}};
+    
+    --m-primary: {{colors.primary.default.hex}};
+    --m-on-primary: {{colors.on_primary.default.hex}};
+    --m-primary-container: {{colors.primary_container.default.hex}};
+    
+    --m-secondary: {{colors.secondary.default.hex}};
+    --m-tertiary: {{colors.tertiary.default.hex}};
+    --m-error: {{colors.error.default.hex}};
+    --m-outline: {{colors.outline.default.hex}};
+
+    /* 2. 覆盖 Zen Browser / Firefox 的核心变量 (使用 !important 强制生效) */
+    
+    /* 浏览器主背景 (侧边栏背景) */
+    --zen-colors-tertiary: var(--m-bg) !important; 
+    --zen-main-browser-background: var(--m-bg) !important;
+
+    /* 顶部工具栏 / 标签栏背景 */
+    --toolbar-bgcolor: var(--m-bg) !important;
+    --tab-selected-bgcolor: var(--m-primary-container) !important;
+
+    /* 主要文字颜色 */
+    --zen-colors-primary-foreground: var(--m-fg) !important;
+    
+    /* 强调色 (链接、选中项) */
+    --zen-colors-primary: var(--m-primary) !important;
+    --zen-colors-secondary: var(--m-secondary) !important;
+    
+    /* 边框颜色 */
+    --zen-colors-border: var(--m-surface-bright) !important;
+    
+    /* URL 栏背景 */
+    --zen-urlbar-background: var(--m-surface-dim) !important;
+}
+
+/* 针对 Zen 特有的侧边栏激活指示器 */
+#zen-sidebar-icons-wrapper .zen-sidebar-icon[active="true"] {
+    background-color: var(--m-primary-container) !important;
+    color: var(--m-primary) !important;
+}

@@ -9,6 +9,7 @@
 # !.local/share/nvim/
 
 !.gitignore
+!README.md
 !nvim/
 !nvim/**
 !kitty/
@@ -19,6 +20,10 @@
 !gtk-4.0/**
 !gtk-3.0/
 !gtk-3.0/**
+!qt5ct/
+!qt5ct/**
+!qt6ct/
+!qt6ct/**
 !wal/
 !wal/**
 !fastfetch/
@@ -33,7 +38,6 @@
 !waybar/**
 !.vim/
 !.vim/**
-!README.md 
 !.local/
 !.local/share/
 !.local/share/applications/
@@ -63,12 +67,22 @@
 !matugen/**
 #!matugen/templates/
 #!matugen/templates/**
-!matugen_bak/
-!matugen_bak/**
-!mpv_bak/
-!mpv_bak/**
 !/pipewire/
 !/pipewire/**
+!/swayimg/
+!/swayimg/**
+!mimeapps.list
+!/aria2/
+!/aria2/**
+!/local_share_dotfiles/
+!/local_share_dotfiles/**
+!/zen-browser/
+!/zen-browser/**
+!/archived/
+!/archived/**
+!/cava/
+!/cava/**
+
 
 #!swaync_bak/
 #!swaync_bak/**
