@@ -27,6 +27,18 @@ end
 #alias pamcan pacman
 #alias ll 'ls -lha | lolcat'
 
+function cmus_update_recent
+    set MUSIC_DIR ~/Music/WinMusic/
+    set PLAYLIST ~/.config/cmus/playlists/recent.pl
+
+    echo "根据 WinMusic 远程文件夹内音乐生成最近添加列表..."
+    find $MUSIC_DIR -type f -printf "%T@ %p\n" | sort -nr | cut -d' ' -f2- >$PLAYLIST
+
+    # 通知 cmus 刷新（如果 cmus 正在运行）
+    cmus-remote -C "pl-import $PLAYLIST"
+    echo "完成！已导入 cmus View 3。"
+end
+
 # 复制粘贴相关 alias
 function wlc
     pwd | wl-copy
@@ -48,7 +60,11 @@ function sw_paper
     sh ~/Public/scripts/swww/swww_switch_30min_with_wal.sh &>/dev/null
 end
 
-function s
+function du_check
+    sh ~/Public/scripts/du_check/du_check.sh
+end
+
+function sss
     fastfetch
 end
 # funcsave s
@@ -61,8 +77,12 @@ function fky
     yay -Syu --devel --sudoloop --noconfirm --answerdiff=None --answerclean=None --removemake
 end
 
-function clip
+function clip_hist
     sh ~/Public/scripts/cliphist/cliphist.sh &>/dev/null
+end
+
+function fish_hist
+    sh ~/Public/scripts/cliphist/fishhist.sh &>/dev/null
 end
 
 function cls
@@ -245,17 +265,19 @@ set -gx PATH $PATH ~/.npm_global/bin ~/Public/realesrgan/ ~/.auto-masm/bin
 
 # 设置GOOGLE_CLOUD_PROJECT_ID
 set -gx GOOGLE_CLOUD_PROJECT coral-trilogy-474906-t3
+# set -gx GOOGLE_CLOUD_PROJECT project-06c35014-907e-42fa-b99
 
 # 设置默认编辑文本文件工具
 set -gx EDITOR nvim
+set -gx SYSTEMD_EDITOR vim
 set -gx VISUAL code
 
 # 设置代理
-set -x http_proxy "http://127.0.0.1:7890/"
-set -x https_proxy "http://127.0.0.1:7890/"
-set -x ftp_proxy "http://127.0.0.1:7890/"
-set -x all_proxy "socks5://127.0.0.1:7891/" # 需要SOCKS5
-set -x no_proxy "localhost,127.0.0.1,::1,*.local,*.lan,192.168.0.0/16,10.0.0.0/8,172.16.0./12" # 排除不需要走代理的地址
+set -x http_proxy "http://127.0.0.1:7890"
+set -x https_proxy "http://127.0.0.1:7890"
+set -x ftp_proxy "http://127.0.0.1:7890"
+set -x all_proxy "http://127.0.0.1:7890" # 需要SOCKS5
+set -x no_proxy "localhost,127.0.0.1,::1,*.local,*.lan,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12" # 排除不需要走代理的地址
 
 # 大写变量名
 set -x HTTP_PROXY $http_proxy # 复制小写的值给大写

@@ -29,23 +29,23 @@
   "script-fail-notify": true,
   "scripts": {
 		"message-sound": {
-			"exec": "/home/Nagisa/.config/swaync/sound/sound-message.sh",
+			"exec": "/home/NagiChan/.config/swaync/sound/sound-message.sh",
 			"app-name":"firefox"
 		},
 		"complete-sound": {
-			"exec": "/home/Nagisa/.config/swaync/sound/sound-complete.sh",
-			"app-name":"QQ|telegram|baidunetdisk|wechat|Motrix|"
+			"exec": "/home/NagiChan/.config/swaync/sound/sound-complete.sh",
+			"app-name":"QQ|telegram|baidunetdisk|wechat|"
 		},
 		"Low-sound": {
-			"exec": "/home/Nagisa/.config/swaync/sound/sound-volume.sh",
+			"exec": "/home/NagiChan/.config/swaync/sound/sound-volume.sh",
 			"urgency": "Low"
 		  },
 		"Normal-sound": {
-		  "exec": "/home/Nagisa/.config/swaync/sound/sound-normal.sh",
+		  "exec": "/home/NagiChan/.config/swaync/sound/sound-normal.sh",
 		  "urgency": "Normal"
 		},
 		"Critical-sound": {
-			"exec": "/home/Nagisa/.config/swaync/sound/sound-critical.sh",
+			"exec": "/home/NagiChan/.config/swaync/sound/sound-critical.sh",
 			"urgency": "Critical"
 		  }
 	},

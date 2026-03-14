@@ -1,43 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:3800
+SETUVAR --export ANTHROPIC_AUTH_TOKEN:sk\x2dcp\x2dIdyTyeZaR2Ic7ubn\x2d6XEOMt92ST1VHZEMwtl7msj_a7EKPQwW_ph5GGdybY6iUE1\x2dXcxyxoDX6\x2dC_632P5uX2j81h5x\x2dF4G5OiI8TwV8mQvWPqHkRLyZjzs
+SETUVAR --export ANTHROPIC_BASE_URL:https\x3a//api\x2eminimaxi\x2ecom/anthropic
+SETUVAR __fish_initialized:4300
 SETUVAR _tide_left_items:\x1d
 SETUVAR _tide_right_items:\x1d
-SETUVAR fish_color_autosuggestion:brblack
-SETUVAR fish_color_cancel:ffb4ab
-SETUVAR fish_color_command:blue
-SETUVAR fish_color_comment:brblack
-SETUVAR fish_color_cwd:6A7B81
-SETUVAR fish_color_cwd_root:BB966C
-SETUVAR fish_color_end:magenta
-SETUVAR fish_color_error:red
-SETUVAR fish_color_escape:yellow
-SETUVAR fish_color_gray:46464f
-SETUVAR fish_color_history_current:\x2d\x2dbold
-SETUVAR fish_color_host:A29E98
-SETUVAR fish_color_host_remote:A29E98
-SETUVAR fish_color_keyword:magenta
-SETUVAR fish_color_normal:e4e1e9
-SETUVAR fish_color_operator:cyan
-SETUVAR fish_color_param:green
-SETUVAR fish_color_quote:yellow
-SETUVAR fish_color_redirection:91909a
-SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d444559
-SETUVAR fish_color_selection:\x2d\x2dbackground\x3d3d4279
-SETUVAR fish_color_status:BB966C
-SETUVAR fish_color_user:6A7B81
-SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_key_bindings:fish_default_key_bindings
-SETUVAR fish_pager_color_background:0e1321
-SETUVAR fish_pager_color_completion:c2c4c7
-SETUVAR fish_pager_color_description:5d6272
-SETUVAR fish_pager_color_prefix:6A7B81
-SETUVAR fish_pager_color_progress:5d6272
-SETUVAR fish_pager_color_secondary_background:0e1321
-SETUVAR fish_pager_color_secondary_completion:c2c4c7
-SETUVAR fish_pager_color_secondary_description:5d6272
-SETUVAR fish_pager_color_secondary_prefix:6A7B81
-SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d5d6272
-SETUVAR fish_pager_color_selected_completion:c2c4c7
-SETUVAR fish_pager_color_selected_description:5d6272
-SETUVAR fish_pager_color_selected_prefix:6A7B81
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_user_paths:/home/NagiChan/\x2enpm\x2dglobal/bin

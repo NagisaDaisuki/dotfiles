@@ -11,20 +11,20 @@
 
 # Current Theme
 dir="$HOME/.config/rofi/powermenu/type-1"
-theme='style-4'
+theme='style-2'
 
 # CMDs
 uptime="$(uptime -p | sed -e 's/up //g')"
 host=$(hostname)
 
 # Options
-shutdown=' Shutdown'
-reboot=' Reboot'
-lock=' Lock'
-suspend=' Suspend'
-logout=' Logout'
-yes=' Yes'
-no=' No'
+shutdown='⏻ Shutdown'
+reboot='󰜉 Reboot'
+lock=' Lock'
+suspend='󰤄 Suspend'
+logout='󰍃 Logout'
+yes='  Yes'
+no='  No'
 
 # Rofi CMD
 rofi_cmd() {
@@ -67,7 +67,13 @@ run_cmd() {
       systemctl reboot
     elif [[ $1 == '--suspend' ]]; then
       mpc -q pause
-      amixer set Master mute
+      pamixer -t
+      # 检查 hyprlock 是否已经在运行，没有则启动
+      pidof hyprlock || hyprlock &
+
+      # 稍微等一下锁屏启动，防止还没锁上就睡着了
+      sleep 1
+
       systemctl suspend
     elif [[ $1 == '--logout' ]]; then
       if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
@@ -78,6 +84,8 @@ run_cmd() {
         i3-msg exit
       elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
         qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+      elif [[ "$DESKTOP_SESSION" == 'hyprland' ]] || [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
+        hyprctl dispatch exit
       fi
     fi
   else
@@ -95,11 +103,7 @@ $reboot)
   run_cmd --reboot
   ;;
 $lock)
-  if [[ -x '/usr/bin/betterlockscreen' ]]; then
-    betterlockscreen -l
-  elif [[ -x '/usr/bin/i3lock' ]]; then
-    i3lock
-  fi
+  hyprlock
   ;;
 $suspend)
   run_cmd --suspend

@@ -3,7 +3,7 @@
 @theme "~/.config/rofi/theme.rasi"
 
 configuration {
-  font:                     "JetBrainsMono Nerd Font 8";
+  font:                     "JetBrainsMono Nerd Font 14";
   hover-select:             true;
   me-select-entry:          "MousePrimary";
   me-accept-entry:          "!MousePrimary";

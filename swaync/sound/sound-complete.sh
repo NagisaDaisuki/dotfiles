@@ -6,4 +6,4 @@ if [[ "$state" == "true" ]]; then
   exit 0
 fi
 
-play -v 0.3 /home/Nagisa/.config/swaync/sound/complete.ogg
+play -v 0.3 /home/NagiChan/.config/swaync/sound/complete.ogg

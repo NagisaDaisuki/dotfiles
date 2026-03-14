@@ -1,3 +1,3 @@
-function s
+function sss
     fastfetch
 end

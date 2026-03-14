@@ -8,5 +8,5 @@
  **/
 
 * {
-  font: "BlexMono Nerd Font Propo 18";
+  font: "BlexMono Nerd Font Propo , Symbol Nerd Font , Font Awesome 6 Free 18";
 }

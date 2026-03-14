@@ -118,9 +118,9 @@ fsmon = yes
 ################################################################################
 [font]
 # Font name
-name = monospace
+name = sans-serif
 # Font size (pt)
-size = 14
+size = 18
 # Font color (RGBA)
 color = #ccccccff
 # Shadow color (RGBA)
@@ -170,6 +170,8 @@ End = last_file
 Prior = prev_file
 Next = next_file
 Space = next_file
+h = prev_file
+l = next_file
 Shift+r = rand_file
 Shift+d = prev_dir
 d = next_dir
@@ -197,6 +199,7 @@ k = zoom keep
 Alt+s = zoom
 bracketleft = rotate_left
 bracketright = rotate_right
+
 m = flip_vertical
 Shift+m = flip_horizontal
 a = antialiasing

@@ -6,4 +6,4 @@ if [[ "$state" == "true" ]]; then
   exit 0
 fi
 
-play -v 0.5 /home/Nagisa/.config/swaync/sound/volume_up_down.oga
+play -v 0.5 $HOME/.config/swaync/sound/volume_up_down.oga
