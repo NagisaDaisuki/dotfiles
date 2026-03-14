@@ -16,11 +16,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
+    -- 第一顺位，LazyVim 官方核心框架
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
+    -- 第二顺位，官方 Extras 扩展包放在中间
+    { import = "lazyvim.plugins.extras.lang.java" },
+
+    -- 第三顺位，自己写的插件垫底（拥有最高覆盖权限）
     -- import/override with your plugins
     { import = "plugins" },
-    { import = "lazyvim.plugins.extras.lang.java" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

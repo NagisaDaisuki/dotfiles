@@ -1,41 +1,42 @@
 -- Java LSP 配置
--- 使用 nvim-jdtls 提供完整的 Java 开发支持
+-- 跨平台兼容 (Linux/Windows/macOS)
 
 local function get_jdtls_config()
-  local home = os.getenv("HOME")
-  local jdtls_path = home .. "/.local/share/nvim/mason/packages/jdtls"
-  local workspace_dir = home .. "/.local/share/nvim/jdtls-workspace"
+  local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+  local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspace"
 
   vim.fn.mkdir(workspace_dir, "p")
 
+  -- 根据系统选择配置目录
+  local config_dir = "config_linux"
+  local binary_name = "jdtls"
+  if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+    config_dir = "config_win"
+    binary_name = "jdtls.bat"
+  elseif vim.fn.has("mac") == 1 then
+    config_dir = "config_mac"
+  end
+
   return {
     cmd = {
-      jdtls_path .. "/bin/jdtls",
+      jdtls_path .. "/bin/" .. binary_name,
       "-configuration",
-      jdtls_path .. "/config_linux",
+      jdtls_path .. "/" .. config_dir,
       "-data",
       workspace_dir,
     },
-    root_dir = require("jdtls.setup").find_root({ "pom.xml", "build.gradle", ".git", "settings.gradle" }),
+    root_dir = require("jdtls.setup").find_root({ "pom.xml", "build.gradle", "settings.gradle", ".git" }),
     on_attach = function(client, bufnr)
-      -- 使用 nvim-jdtls 的扩展功能
       require("jdtls").setup_dap({ hotcodereplace = "more" })
     end,
     settings = {
       java = {
-        -- 格式化设置
         format = {
           settings = {
             url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
           },
         },
-        -- 代码片段
-        contentProvider = { preferred = "fernflower" },
       },
-    },
-    -- jdtls 启动参数
-    init_options = {
-      bundles = {},
     },
   }
 end
@@ -53,6 +54,5 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 return {
-  -- nvim-jdtls: Java 开发增强插件
   { "mfussenegger/nvim-jdtls", ft = "java" },
 }
