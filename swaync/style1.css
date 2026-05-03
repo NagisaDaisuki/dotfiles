@@ -1,45 +1,44 @@
-@import matugen-colors.css;
-
 /* ==================================================================
    SwayNC Refined CSS for Cohesive Visuals - github: @iyiolacak
-   Modified: Matugen gradient border / Hyprland-like glow
    ================================================================== */
 
-/* ── 1. Palette & Globals ───────────────────────────────────────── */
+/* ── 1. Palette & Globals (Using @define-color) ──────────────────── */
 
 @define-color theme_fg rgba(248, 248, 252, 0.98);
+/* Primary Text */
 @define-color theme_fg_secondary rgba(215, 220, 225, 0.78);
-
+/* Secondary Text */
 @define-color theme_bg rgba(22, 22, 28, 0.22);
+/* Panel/Background */
 @define-color popup_bg rgba(20, 25, 25, 0.5);
+/* Floating Notification Background */
 @define-color module_bg rgba(20, 20, 20, 0.46);
+/* Default Module Background */
 @define-color module_hover_bg rgba(210, 215, 225, 0.35);
-
+/* Module Hover */
 @define-color button_bg rgba(130, 135, 145, 0.28);
+/* Button Default */
 @define-color button_hover_bg rgba(150, 155, 165, 0.40);
-
+/* Button Hover */
 @define-color accent_color rgba(10, 132, 255, 0.8);
+/* Accent Active */
 @define-color accent_color_hover #198de5;
-
+/* Accent Hover */
 @define-color border_light rgba(255, 255, 255, 0.18);
 @define-color border_dark rgba(0, 0, 0, 0.06);
 @define-color border_medium alpha(@border_light, 0.5);
-
+/* Approx rgba(255, 255, 255, 0.09) */
 @define-color icon_primary @theme_fg;
 @define-color icon_secondary rgba(215, 220, 225, 0.88);
-
 @define-color slider_trough_bg rgba(50, 55, 65, 0.35);
 @define-color slider_thumb_bg white;
-
 @define-color close_button_bg rgba(110, 110, 115, 0.15);
 @define-color close_button_hover_bg rgba(130, 130, 135, 0.30);
-
 @define-color mpris_player_bg rgba(0, 0, 0, 0.5);
 
-/* ── Base Reset ─────────────────────────────────────────────────── */
-
+/* ── Base Reset ───────────────────────────────────────────────────── */
 * {
-  font-family: JetBrainsMono Nerd Font, Sarasa UI SC, sans-serif;
+  font-family: "JetBrainsMono Nerd Font", "Sarasa UI SC", sans-serif;
   font-size: 20px;
   font-weight: 600;
   color: @theme_fg;
@@ -53,64 +52,28 @@
   outline: none;
 }
 
-/* ── 2. Control Center Container ────────────────────────────────── */
-
+/* ── 2. Control Center Container ─────────────────────────────────── */
 .control-center {
   background-color: @theme_bg;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      alpha(@mat_primary, 0.20),
-      alpha(@mat_secondary_container, 0.06) 42%,
-      alpha(@mat_tertiary, 0.16)
-    );
-
-  border-width: 2px;
-  border-style: solid;
-  border-color: alpha(@mat_primary, 0.58);
-  border-top-color: alpha(@mat_tertiary, 0.72);
-  border-bottom-color: alpha(@mat_secondary, 0.38);
-
+  border: 1px solid @border_medium;
+  border-top-color: @border_light;
+  border-bottom-color: @border_dark;
   border-radius: 0px;
   padding: 28px;
   min-width: 380px;
-
-  box-shadow:
-    inset 0 0 0 1px alpha(@mat_on_primary, 0.08),
-    inset 0 1px 0 alpha(@mat_on_primary, 0.10),
-    0 0 18px alpha(@mat_primary, 0.18),
-    0 0 38px alpha(@mat_tertiary, 0.10);
 }
 
-/* ── 3. Widget Modules ──────────────────────────────────────────── */
-
+/* ── 3. Widget Modules ───────────────────────────────────────────── */
 .widget-mpris,
 .widget-volume,
 .widget-backlight,
 .widget-buttons-grid,
 .control-center-list>box>*:not(.widget-title) {
   background-color: @module_bg;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      alpha(@mat_primary, 0.11),
-      transparent 42%,
-      alpha(@mat_tertiary, 0.09)
-    );
-
   border-radius: 18px;
   padding: 18px;
   margin-bottom: 14px;
-
-  border-width: 2px;
-  border-style: solid;
-  border-color: alpha(@mat_primary, 0.36);
-
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.07),
-    0 0 14px alpha(@mat_primary, 0.07);
+  border: 1px solid @border_medium;
 }
 
 .widget-volume,
@@ -127,7 +90,6 @@
 }
 
 /* Widget Titles */
-
 .widget-title {
   background: transparent;
   border: none;
@@ -136,7 +98,7 @@
 }
 
 .widget-title label {
-  font-family: JetBrainsMono Nerd Font, Sarasa UI SC Nerd Font, sans-serif;
+  font-family: "JetBrainsMono Nerd Font", "Sarasa UI SC Nerd Font", sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: @theme_fg_secondary;
@@ -149,50 +111,31 @@
   font-size: 16px;
   color: @theme_fg;
   background-color: @button_bg;
-  border: 1px solid alpha(@mat_primary, 0.22);
+  border: none;
   border-radius: 10px;
   padding: 7px 16px;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .widget-title button:hover,
 .widget-title button:active {
   background-color: @button_hover_bg;
-  border-color: alpha(@mat_tertiary, 0.42);
 }
 
 /* ── 4. MPRIS Widget ────────────────────────────────────────────── */
-
 .widget-mpris {
   padding: 0;
   border: none;
+
   border-radius: 18px;
   background: transparent;
-  box-shadow: none;
 }
 
 .widget-mpris .widget-mpris-player {
   background-color: @mpris_player_bg;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      alpha(@mat_primary, 0.16),
-      transparent 45%,
-      alpha(@mat_tertiary, 0.12)
-    );
-
   border-radius: 12px;
-
-  border-width: 2px;
-  border-style: solid;
-  border-color: alpha(@mat_primary, 0.40);
-
+  border: 1px solid @border_medium;
   padding: 16px;
-
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.08),
-    0 0 18px alpha(@mat_primary, 0.09);
 }
 
 .widget-mpris .widget-mpris-album-art {
@@ -238,8 +181,7 @@
   color: alpha(@icon_secondary, 0.3);
 }
 
-/* ── 5. Sliders ─────────────────────────────────────────────────── */
-
+/* ── 5. Sliders (Volume, Backlight) ─────────────────────────────── */
 .widget-volume label,
 .widget-backlight label {
   font-size: 24px;
@@ -257,35 +199,19 @@ scale trough {
 scale trough progress {
   min-height: 12px;
   border-radius: 6px;
-
-  background-color: @mat_primary;
-  background-image:
-    linear-gradient(
-      90deg,
-      @mat_primary,
-      @mat_tertiary
-    );
-
+  background-color: @accent_color;
   transition: background-color 0.15s ease;
 }
 
 scale:hover trough progress {
-  background-color: @mat_primary;
+  background-color: @accent_color;
 }
 
 trough highlight {
   padding: 5px;
-
-  background-color: @mat_primary;
-  background-image:
-    linear-gradient(
-      90deg,
-      @mat_primary,
-      @mat_tertiary
-    );
-
+  background: @accent_color;
   border-radius: 20px;
-  box-shadow: 0 0 8px alpha(@mat_primary, 0.35);
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
   transition: all 0.7s ease;
 }
 
@@ -294,11 +220,9 @@ scale slider {
   min-height: 14px;
   border-radius: 7px;
   background-color: @slider_thumb_bg;
-  box-shadow: 0 0 8px alpha(@mat_primary, 0.28);
 }
 
 /* ── 6. Button Grid ─────────────────────────────────────────────── */
-
 .widget-buttons-grid>flowbox {
   padding: 0;
   background: none;
@@ -311,54 +235,26 @@ scale slider {
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
   background-color: rgba(0, 0, 0, 0.7);
-
-  background-image:
-    linear-gradient(
-      135deg,
-      alpha(@mat_primary, 0.06),
-      transparent 50%,
-      alpha(@mat_tertiary, 0.05)
-    );
-
   border-radius: 66px;
   padding: 14px;
   min-width: 24px;
   min-height: 24px;
   color: @icon_secondary;
-
-  border: 1px solid alpha(@mat_primary, 0.18);
-
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
   background-color: rgba(20, 20, 20, 0.45);
   color: @icon_primary;
-  border-color: alpha(@mat_tertiary, 0.38);
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button.toggle:checked {
-  background-color: alpha(@mat_primary, 0.82);
-
-  background-image:
-    linear-gradient(
-      135deg,
-      alpha(@mat_on_primary, 0.18),
-      transparent 45%,
-      alpha(@mat_tertiary, 0.22)
-    );
-
-  color: @mat_on_primary;
-
-  border-color: alpha(@mat_tertiary, 0.45);
-
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.18),
-    0 0 14px alpha(@mat_primary, 0.24);
+  background-color: @accent_color;
+  color: white;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button.toggle:checked:hover {
-  background-color: alpha(@mat_primary, 0.95);
+  background-color: @accent_color_hover;
 }
 
 /* ── 7. Notification Center ─────────────────────────────────────── */
@@ -374,46 +270,16 @@ scale slider {
 
 .control-center .notification-background {
   background-color: @module_bg;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      alpha(@mat_primary, 0.10),
-      transparent 42%,
-      alpha(@mat_tertiary, 0.08)
-    );
-
-  border-width: 2px;
-  border-style: solid;
-  border-color: alpha(@mat_primary, 0.36);
-
+  border: 1px solid @border_medium;
   padding: 16px;
   border-radius: 18px;
-
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.06),
-    0 0 14px alpha(@mat_primary, 0.06);
+  transition: background-color 0.15s ease;
 }
 
 .control-center .notification-row:hover .notification-background {
+
   border-radius: 18px;
   background-color: @module_hover_bg;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      alpha(@mat_primary, 0.18),
-      alpha(@mat_secondary, 0.08) 45%,
-      alpha(@mat_tertiary, 0.14)
-    );
-
-  border-color: alpha(@mat_tertiary, 0.52);
-
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.08),
-    0 0 18px alpha(@mat_primary, 0.12);
 }
 
 .control-center .notification .summary {
@@ -423,6 +289,7 @@ scale slider {
 }
 
 .control-center .notification .body {
+
   color: @theme_fg_secondary;
 }
 
@@ -442,56 +309,43 @@ scale slider {
 }
 
 .control-center .close-button:hover {
-  background-color: alpha(@mat_primary, 0.32);
+  background-color: @close_button_hover_bg;
 }
 
 .control-center .close-button image {
   margin-right: 12px;
+  /* Adjust this value for desired spacing */
   color: @icon_secondary;
 }
 
 .control-center .notification image {
   margin-right: 12px;
+  /* Space between image and text */
   min-width: 36px;
+  /* Define a minimum width */
   min-height: 36px;
+  /* Define a minimum height */
+  /* Add or adjust the border-radius property here */
   border-radius: 8px;
+  /* <<< THIS LINE controls the rounding */
 }
 
 /* ── 8. Floating Notifications ─────────────────────────────────── */
-
 .floating-notifications .notification-row {
   margin-bottom: 12px;
 }
 
 .floating-notifications .notification-background {
   background-color: @popup_bg;
-
-  border-width: 2px;
-  border-style: solid;
-  border-color: alpha(@mat_primary, 0.62);
-
+  border: 1px solid @border_light;
   border-radius: 18px;
   padding: 18px;
   margin: 8px 14px;
-
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.08),
-    inset 0 0 0 1px alpha(@mat_tertiary, 0.16),
-    0 0 18px alpha(@mat_primary, 0.16),
-    0 0 36px alpha(@mat_tertiary, 0.09);
+  transition: background-color 0.15s ease;
 }
 
 .floating-notifications .notification-row:hover .notification-background {
-  background-color: alpha(@popup_bg, 0.72);
-  border-color: alpha(@mat_tertiary, 0.72);
-
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.10),
-    inset 0 0 0 1px alpha(@mat_primary, 0.22),
-    0 0 22px alpha(@mat_primary, 0.22),
-    0 0 44px alpha(@mat_tertiary, 0.12);
+  background-color: alpha(@popup_bg, 1.1);
 }
 
 .floating-notifications .notification .summary {
@@ -526,59 +380,32 @@ scale slider {
 }
 
 .floating-notifications .close-button:hover {
-  background-color: alpha(@mat_primary, 0.32);
+  background-color: @close_button_hover_bg;
 }
 
 .floating-notifications .close-button image {
   margin-right: 12px;
+  /* Adjust this value for desired spacing */
   color: @icon_secondary;
 }
 
 .floating-notifications .notification-alt-actions {
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid alpha(@mat_primary, 0.30);
+  border-top: 1px solid @border_medium;
 }
 
 .floating-notifications .notification-action button,
 .floating-notifications .notification-alt-actions button {
   font-size: 20px;
   color: @theme_fg;
-
-  background-color: alpha(@mat_primary_container, 0.28);
-
-  border-width: 1px;
-  border-style: solid;
-  border-color: alpha(@mat_primary, 0.26);
-
+  background-color: @button_bg;
   border-radius: 2px;
   padding: 8px 18px;
-
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .floating-notifications .notification-action button:hover,
 .floating-notifications .notification-alt-actions button:hover {
-  background-color: alpha(@mat_primary, 0.35);
-  border-color: alpha(@mat_tertiary, 0.46);
-}
-
-/* ── 9. Extra Matugen Glow Tweaks ───────────────────────────────── */
-
-/* 让控制中心的空通知区域也有轻微颜色层次 */
-.control-center-list:empty {
-  background: transparent;
-}
-
-/* 清除按钮、普通按钮 hover 时更贴近 Material You */
-.control-center button:hover,
-.floating-notifications button:hover {
-  box-shadow:
-    inset 0 1px 0 alpha(@mat_on_primary, 0.08),
-    0 0 10px alpha(@mat_primary, 0.10);
-}
-
-/* 如果某些通知带 action，增强分割线可见性 */
-.notification-alt-actions {
-  border-top-color: alpha(@mat_primary, 0.28);
+  background-color: @button_hover_bg;
 }

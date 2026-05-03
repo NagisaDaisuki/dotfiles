@@ -57,7 +57,7 @@ function shgo
 end
 
 function sw_paper
-    sh ~/Public/scripts/swww/swww_switch_30min_with_wal.sh &>/dev/null
+    sh ~/Public/scripts/awww/awww_switch_bgr.sh &>/dev/null
 end
 
 function du_check

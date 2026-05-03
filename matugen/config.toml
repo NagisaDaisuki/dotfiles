@@ -9,6 +9,12 @@ version_check = false
 
 # Templates
 
+# Swaync
+[templates.swaync]
+input_path = "~/.config/matugen/templates/matugen-swaync.css"
+output_path = "~/.config/swaync/matugen-colors.css"
+post_hook = "swaync-client -rs"
+
 # Kitty
 [templates.kitty]
 input_path = '~/.config/matugen/templates/matugen-kitty.conf'

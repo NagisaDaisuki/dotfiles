@@ -41,7 +41,7 @@ function fish_greeting
     # -------------------------------------------------------
     if test $term_width -ge 120
         # 宽终端： 输出最大的图形
-        string join \n $greeting_large | while read -l line
+        string join \n $greeting_mid | while read -l line
             # 输出当前行到 lolcat
             echo $line | lolcat -F 0.2 -S 3
             # 延迟 0.05 秒 

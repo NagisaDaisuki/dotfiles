@@ -96,10 +96,10 @@ text/x-makefile=nvim-kitty.desktop
 text/x-cmake=nvim-kitty.desktop
 text/x-go=nvim-kitty.desktop
 text/x-rust=nvim-kitty.desktop
-x-scheme-handler/http=zen-browser.desktop
-x-scheme-handler/https=zen-browser.desktop
+x-scheme-handler/http=google-chrome-beta.desktop
+x-scheme-handler/https=google-chrome-beta.desktop
 x-scheme-handler/chrome=userapp-Zen-JLJ3H3.desktop
-text/html=userapp-Zen-JLJ3H3.desktop
+text/html=google-chrome-beta.desktop
 application/x-extension-htm=userapp-Zen-JLJ3H3.desktop
 application/x-extension-html=userapp-Zen-JLJ3H3.desktop
 application/x-extension-shtml=userapp-Zen-JLJ3H3.desktop
@@ -129,6 +129,8 @@ text/x-lua=nvim-kitty.desktop
 x-scheme-handler/clash=mihomo-party.desktop
 x-scheme-handler/clash-verge=clash-verge.desktop;
 x-scheme-handler/mihomo=mihomo-party.desktop
+x-scheme-handler/about=google-chrome-beta.desktop
+x-scheme-handler/unknown=google-chrome-beta.desktop
 
 [Added Associations]
 image/png=swayimg.desktop
