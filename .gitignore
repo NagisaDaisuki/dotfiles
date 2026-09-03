@@ -1,114 +1,80 @@
-# 忽略所有文件
-*
+# ============================================================
+# 策略：默认忽略顶层所有条目（/* 只匹配根目录下的一级条目），
+# 然后白名单需要的目录。白名单一个目录后，其内部所有文件
+# 默认都会被追踪，只需对"大文件/可再生成/敏感内容"单独排除。
+# ============================================================
 
-# 但不要忽略这些文件
-# 为什么要写中间目录（比如 .local/ 和 .local/share/）？
-# Git 的 .gitignore 是 逐级过滤的。如果父目录被忽略了，即使你白名单了子目录，也不会生效。
-# 错误写法，Git 会忽略整个 .local（默认被 * 匹配了）
-# *
-# !.local/share/nvim/
+/*
 
-!.gitignore
-!README.md
-!nvim/
-!nvim/**
-!kitty/
-!kitty/**
-!fish/
-!fish/**
-!gtk-4.0/
-!gtk-4.0/**
-!gtk-3.0/
-!gtk-3.0/**
-!qt5ct/
-!qt5ct/**
-!qt6ct/
-!qt6ct/**
-!wal/
-!wal/**
-!fastfetch/
-!fastfetch/**
-!hypr/
-!hypr/**
-!mpv/
-!mpv/**
-!rofi/
-!rofi/**
-!waybar/
-!waybar/**
-!.vim/
-!.vim/**
-!.local/
-!.local/share/
-!.local/share/applications/
-!.local/share/applications/**
-!waybar.bak/
-!waybar.bak/**
-!clash/
-!clash/**
-!fish.bak/
-!fish.bak/**
-!.cache/
-!.cache/wal/
-!.cache/wal/**
-!swaync/
-!swaync/**
-#!swaync/icons/
-#!swaync/icons/**
-#!swaync/images/
-#!swaync/images/** 
-#!swaync/sound/ 
-#!swaync/sound/**
-!wlogout/
-!wlogout/**
-#!wlogout/icons/
-#!wlogout/icons/**
-!matugen/
-!matugen/**
-#!matugen/templates/
-#!matugen/templates/**
-!/pipewire/
-!/pipewire/**
-!/swayimg/
-!/swayimg/**
-!mimeapps.list
-!/aria2/
-!/aria2/**
-!/local_share_dotfiles/
-!/local_share_dotfiles/**
-!/zen-browser/
-!/zen-browser/**
+# --- 顶层文件 ---
+!/.gitignore
+!/README.md
+!/mimeapps.list
+!/electron-flags.conf
+!/qq-flags.conf
+!/wechat-flags.conf
+
+# --- 白名单目录（每行一个，无需再写 !dir/**）---
 !/archived/
-!/archived/**
+!/aria2/
+!/caelestia/
 !/cava/
-!/cava/**
+!/fastfetch/
+!/fish/
+!/gtk-3.0/
+!/gtk-4.0/
+!/hypr/
+!/kitty/
+!/matugen/
+!/nwg-look/
+!/nvim/
+!/pipewire/
+!/qt5ct/
+!/qt6ct/
+!/quickshell/
+!/rofi/
+!/satty/
+!/swayimg/
+!/swaync/
+!/waybar/
+!/wlogout/
+!/yazi/
+!/.vim/
 
+# --- 嵌套目录：先取消父目录，再收紧范围 ---
+!/.local/
+.local/*
+!.local/share/
+.local/share/*
+!.local/share/applications/
 
-#!swaync_bak/
-#!swaync_bak/**
+# --- 壁纸备份
+!/wallpapers/
+!/wallpapers/**
 
+# !/.cache/
+# .cache/*
+# !.cache/wal/
 
+# ============================================================
+# 各目录内的排除项
+# ============================================================
 
-# 子目錄中需要忽略的文件夾
-.local/share/nvim/
-.local/share/nvim/**
-!.local/share/fcitx5/
-!.local/share/fcitx5/**
-################## 註釋 ######################
+# vim 插件由插件管理器还原，不入库
+.vim/plugged/
 
-# 補充中間父目錄
-#*
-#!.gitignore
-#!.local/
-#!.local/share/
-#!.local/share/fcitx5/
-#!.local/share/fcitx5/**
-#!.local/share/nvim/
-#!.local/share/nvim/**
-#!.local/share/applications/
-#!.local/share/applications/**
+# mpv：第三方脚本可重新获取，缓存/字体不入库
+mpv/scripts/
+mpv/cache/
+mpv/fonts/
 
+# rofi：主题图片体积大，按需入库（若主题依赖这些图请删掉此行）
+rofi/images/
 
-# 如果这些目录中还有子目录/文件需要排除，可以进一步指定
-# nvim/tmp
-# nvim/lua
+# 杂项垃圾文件
+*.swp
+__pycache__/
+node_modules/
+
+# 含 API Key 的本地文件，永不入库
+fish/conf.d/ai-api.fish

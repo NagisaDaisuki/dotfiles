@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Logisim
-Exec=env GDK_SCALE=2.0 GDK_DPI_SCALE=1.0 /usr/bin/java -jar /opt/logisim/logisim-generic-2.7.1.jar %U 
-Terminal=false
-Type=Application
-Icon=logisim
-StartupWMClass=logisim
-Categories=Network;
-Comment=logisim

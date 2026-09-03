@@ -12,19 +12,19 @@
 
 //* {
 //    /* 背景色：使用最深的背景 */
-//    background:     #1a1110FF;
+//    background:     #18130bFF;
 //
 //    /* 备用背景 (background-alt)：使用稍微亮一点的容器色，用于区分列表项 */
-//    background-alt: #271d1cFF;
+//    background-alt: #241f17FF;
 //
 //    /* 前景色 (foreground)：标准的字体颜色 */
-//    foreground:     #f1dedcFF;
+//    foreground:     #ece1d4FF;
 //
 //    /* 选中状态 (selected)：使用主色调 (Primary) */
-//    selected:       #ffb4a9FF;
+//    selected:       #f1be6eFF;
 //
 //    /* 激活状态 (active)：使用次要色 (Secondary)，通常用于窗口切换模式 */
-//    active:         #e7bdb7FF;
+//    active:         #dcc3a1FF;
 //
 //    /* 紧急状态 (urgent)：使用错误色 (Error) */
 //    urgent:         #ffb4abFF;
@@ -36,14 +36,14 @@
 * {
     /* --- 关键修改 --- */
     /* 在颜色后面加上 CC 表示 80% 不透明度 (你可以改成 AA 或 99 让它更透) */
-    background:     #1a1110CC;
+    background:     #18130bCC;
 
     /* 列表项背景也稍微透一点，或者保持 FF (如果你希望交替行不透明) */
-    background-alt: #271d1cCC;
+    background-alt: #241f17CC;
 
     /* --- 以下保持 FF (不透明) 以确保文字清晰 --- */
-    foreground:     #f1dedcFF;
-    selected:       #ffb4a9FF;
-    active:         #e7bdb7FF;
+    foreground:     #ece1d4FF;
+    selected:       #f1be6eFF;
+    active:         #dcc3a1FF;
     urgent:         #ffb4abFF;
 }

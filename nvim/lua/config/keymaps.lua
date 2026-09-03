@@ -5,8 +5,8 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- nvim-tree 快捷键
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle File Tree" })
-map("n", "<leader>o", "<cmd>NvimTreeFocus<CR>", { noremap = true, silent = true, desc = "Focus File Tree" })
+-- map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle File Tree" })
+-- map("n", "<leader>o", "<cmd>NvimTreeFocus<CR>", { noremap = true, silent = true, desc = "Focus File Tree" })
 
 -- telescope 快捷键
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts) -- 查找所有文件

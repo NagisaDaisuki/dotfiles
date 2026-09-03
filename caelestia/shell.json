@@ -1,0 +1,39 @@
+{
+    "appearance": {
+        "transparency": {
+            "base": 0.75,
+            "enabled": true,
+            "layers": 0.7
+        }
+    },
+    "bar": {
+        "clock": {
+            "background": false,
+            "showDate": false
+        },
+        "workspaces": {
+            "maxWindowIcons": 5,
+            "shown": 5
+        }
+    },
+    "general": {
+        "apps": {
+            "terminal": [
+                "kitty"
+            ]
+        }
+    },
+    "launcher": {
+        "showOnHover": false
+    },
+    "notifs": {
+        "defaultExpireTimeout": 4000
+    },
+    "services": {
+        "defaultPlayer": "YesPlayMusic",
+        "lyricsBackend": "Auto",
+        "useFahrenheit": false,
+        "useTwelveHourClock": false,
+        "weatherLocation": "31.30408,120.59538"
+    }
+}

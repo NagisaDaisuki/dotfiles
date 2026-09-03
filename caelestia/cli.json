@@ -1,0 +1,5 @@
+{
+    "theme": {
+        "postHook": "python3 /home/NagiChan/Public/scripts/awww/kitty_colours.py"
+    }
+}

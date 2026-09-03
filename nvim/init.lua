@@ -13,3 +13,6 @@ vim.cmd([[highlight NormalNC guibg=NONE ctermbg=NONE]])
 vim.cmd([[highlight NormalFloat guibg=NONE ctermbg=NONE]])
 vim.cmd([[highlight Pmenu guibg=NONE ctermbg=NONE]])
 vim.cmd([[highlight FloatBorder guibg=NONE ctermbg=NONE]])
+
+-- 设置 virtualedit
+vim.opt.virtualedit = "block"

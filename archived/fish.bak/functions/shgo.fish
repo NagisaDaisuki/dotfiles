@@ -1,3 +1,0 @@
-function shgo
-    sh
-end
